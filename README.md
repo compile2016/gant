@@ -12,18 +12,18 @@
 
 ## Installation
 Download the shell script directly into your binary-files directory and add execute permission(**run with root if necessary**)
-> $ curl -o /usr/local/bin/gant https://raw.githubusercontent.com/3013216027/gant/master/gant.sh
+> curl -o /usr/local/bin/gant https://raw.githubusercontent.com/3013216027/gant/master/gant.sh
 
-> $ chmod a+x /usr/local/bin/gant
+> chmod a+x /usr/local/bin/gant
 
 - Windows git-bash user should do like this(add the alias to your bash profile as I recommand you to do):
-> $ curl -o /usr/bin/gant.sh https://raw.githubusercontent.com/3013216027/gant/master/gant.sh
+> curl -o /usr/bin/gant.sh https://raw.githubusercontent.com/3013216027/gant/master/gant.sh
 
-> $ alias gant='/usr/bin/gant.sh'
+> alias gant='/usr/bin/gant.sh'
 
 ## Example
 
-> $ vim Expr.g4
+> vim Expr.g4
 
 ```
 grammar Expr;
@@ -34,16 +34,16 @@ INT		:	[0-9]+ ;
 ```
 
 - Generate the makefile
-> $ gant Expr
+> gant Expr
 
 - Compile
-> $ make
+> make
 
 - Running
-> $ make run
+> make run
 
 - Clean the temporary files
-> $ make clean
+> make clean
 
 - Clean all files generate (only your source files preserved)
-> $ make rm
+> make rm
