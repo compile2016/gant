@@ -166,6 +166,8 @@ run: ${files}Lexer.class Expression.txt
 
 clean:
 	rm -rf *.java
-	rm -rf *.class
 	rm -rf *.tokens
+
+rm: clean
+	rm -rf *.class
 EOF

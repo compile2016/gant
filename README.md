@@ -40,3 +40,6 @@ INT		:	[0-9]+ ;
 
 - Clean the temporary files
 > $ make clean
+
+- Clean all files generate (only your source files preserved)
+> $ make rm
