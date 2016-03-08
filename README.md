@@ -17,6 +17,7 @@ Download the shell script directly into your binary-files directory and add exec
 > chmod a+x /usr/local/bin/gant
 
 - Windows git-bash user should do like this(add the alias to your bash profile as I recommand you to do):
+
 > curl -o /usr/bin/gant.sh https://raw.githubusercontent.com/3013216027/gant/master/gant.sh
 
 > alias gant='/usr/bin/gant.sh'
