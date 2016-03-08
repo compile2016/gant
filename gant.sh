@@ -81,7 +81,7 @@ check() {
 
 		for file in $@; do
 				if [ ! -f ${file}.g4 ]; then
-						echo "Error: cound not find file $file!"
+						echo "Error: cound not find file ${file}.g4!"
 						return 2
 				fi
 		done
