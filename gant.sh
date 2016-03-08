@@ -71,8 +71,6 @@ EOF
 ###################
 check() {
 		# TODO: wait for rm.
-		echo $#
-		echo $@
 		if [ $# -ne 1 ]; then
 				echo "Error: Too many file names appoint!"
 				help
@@ -110,7 +108,7 @@ for arg in $@
 do
 		#echo "check "$arg
 		if [ ${arg:0:2} == "--" ]; then
-				echo "get "$arg
+				#echo "get "$arg
 				case $arg in
 						\-\-gui) opt_g="true";;
 						\-\-tree) opt_t="true";;
@@ -120,7 +118,7 @@ do
 						*) files=$files" "$arg;;
 				esac
 		elif [ ${arg:0:1} == "-" ]; then
-				echo "get "$arg
+				#echo "get "$arg
 				case $arg in
 						\-g) opt_g="true";;
 						\-t) opt_t="true";;
@@ -132,7 +130,7 @@ do
 		else
 				files=$files" "$arg
 		fi
-		echo "files = "$files
+		#echo "files = "$files
 done
 
 opt_com=
