@@ -61,6 +61,7 @@ Arguments:
 	
 		* The default start symbol is "prog", the default input file is Expression.txt, this
 		  will be removed at later version
+
 EOF
 		fi
 }
@@ -70,6 +71,8 @@ EOF
 ###################
 check() {
 		# TODO: wait for rm.
+		echo $#
+		echo $@
 		if [ $# -ne 1 ]; then
 				echo "Error: Too many file names appoint!"
 				help
@@ -106,7 +109,7 @@ files=""
 for arg in $@
 do
 		#echo "check "$arg
-		if [ $arg == \-\-* ]; then
+		if [ ${arg:0:2} == "--" ]; then
 				echo "get "$arg
 				case $arg in
 						\-\-gui) opt_g="true";;
@@ -116,7 +119,7 @@ do
 						\-\-version) opt_v="true";;
 						*) files=$files" "$arg;;
 				esac
-		elif [ $arg == \-* ]; then
+		elif [ ${arg:0:1} == "-" ]; then
 				echo "get "$arg
 				case $arg in
 						\-g) opt_g="true";;
@@ -129,6 +132,7 @@ do
 		else
 				files=$files" "$arg
 		fi
+		echo "files = "$files
 done
 
 opt_com=
