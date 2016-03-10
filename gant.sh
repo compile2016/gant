@@ -47,20 +47,20 @@ GANT - makefile generator for antlr4 1.0 (2016 Mar 6)
 usage: gant [arguments] [file name]       generate makefile for the specific file
 
 Arguments:
-		-g  or  --gui		 Generate with -gui running option (Default)
+	-g  or  --gui		 Generate with -gui running option (Default)
 
-		-t  or 	--tree		 Generate with -tree running option
+	-t  or 	--tree		 Generate with -tree running option
 	
-		-o  or 	--tokens	 Generate with -tokens running option
+	-o  or 	--tokens	 Generate with -tokens running option
 	
-		-h  or 	--help		 Print Help (this message) and exit
+	-h  or 	--help		 Print Help (this message) and exit
 	
-		-v  or 	--version	 Print version information and exit
+	-v  or 	--version	 Print version information and exit
 	
-		* If more than 1 of {-g, -t, -o} options are given, the later one(s) would be ignored.
+	* If more than 1 of {-g, -t, -o} options are given, the later one(s) would be ignored.
 	
-		* The default start symbol is "prog", the default input file is Expression.txt, this
-		  will be removed at later version
+	* The default start symbol is "prog", the default input file is Expression.txt, this
+	  will be removed at later version
 
 EOF
 		fi
