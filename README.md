@@ -48,3 +48,7 @@ INT		:	[0-9]+ ;
 
 - Clean all files generate (only your source files preserved)
 > make rm
+
+## API
+
+- Please see `gant -h` or `gant --help` for more help

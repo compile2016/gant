@@ -38,29 +38,31 @@
 help() {
 		if [ $# -ne 0 ]; then
 				cat 1>&2 << EOF
-GANT - makefile generator for antlr4 1.0 (2016 Mar 6)
+GANT v2.0 - makefile generator for antlr4 (2016 Mar 22)
 EOF
 		else
 				cat 1>&2 << EOF
-GANT - makefile generator for antlr4 1.0 (2016 Mar 6)
+GANT v2.0 - makefile generator for antlr4 (2016 Mar 22)
 
 usage: gant [arguments] [file name]       generate makefile for the specific file
 
 Arguments:
-	-g  or  --gui		 Generate with -gui running option (Default)
+    -g  or  --gui             Generate with -gui running option (Default)
 
-	-t  or 	--tree		 Generate with -tree running option
-	
-	-o  or 	--tokens	 Generate with -tokens running option
-	
-	-h  or 	--help		 Print Help (this message) and exit
-	
-	-v  or 	--version	 Print version information and exit
-	
-	* If more than 1 of {-g, -t, -o} options are given, the later one(s) would be ignored.
-	
-	* The default start symbol is "prog", the default input file is Expression.txt, this
-	  will be removed at later version
+    -t  or  --tree            Generate with -tree running option
+
+    -o  or  --tokens          Generate with -tokens running option
+
+    -s  or  --start-symbol    Appoint start symbol(Default prog)
+
+    -h  or  --help            Print Help (this message) and exit
+
+    -v  or  --version         Print version information and exit
+
+
+    * If more than 1 of {-g, -t, -o} options are given, the later one(s) would be ignored.
+
+    * The default start symbol is "prog", the default input file is Expression.txt
 
 EOF
 		fi
@@ -101,18 +103,22 @@ fi
 opt_g="false"
 opt_t="false"
 opt_o="false"
+opt_s="false"
 opt_h="false"
 opt_v="false"
 files=""
-for arg in $@
-do
-		#echo "check "$arg
+start_symbol="prog"
+
+while [ $# -gt 0 ]; do
+		echo "check "$1
+		arg=$1
 		if [ ${arg:0:2} == "--" ]; then
 				#echo "get "$arg
 				case $arg in
 						\-\-gui) opt_g="true";;
 						\-\-tree) opt_t="true";;
 						\-\-tokens) opt_o="true";;
+						\-\-start\-symbol) opt_s="true";;
 						\-\-help) opt_h="true";;
 						\-\-version) opt_v="true";;
 						*) files=$files" "$arg;;
@@ -123,16 +129,25 @@ do
 						\-g) opt_g="true";;
 						\-t) opt_t="true";;
 						\-o) opt_o="true";;
+						\-s) opt_s="true";;
 						\-h) opt_h="true";;
 						\-v) opt_v="true";;
 						*) files=$files" "$arg;;
 				esac
 		else
-				files=$files" "$arg
+				files=$files" "$1
 		fi
-		#echo "files = "$files
+		if [ $opt_s == "true" ]; then
+				opt_s="false"
+				shift
+				start_symbol=$1
+		fi
+		shift
+		echo "files = "$files
+		echo "cmd = "$*
 done
 
+# Final options
 opt_com=
 if [ $opt_h == "true" ]; then
 		help
@@ -164,7 +179,7 @@ default: ${files}.g4
 	javac $files*.java
 
 run: ${files}Lexer.class Expression.txt
-	grun $files prog $opt_com Expression.txt
+	grun $files $start_symbol $opt_com Expression.txt
 
 clean:
 	rm -rf *.java
