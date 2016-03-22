@@ -110,7 +110,7 @@ files=""
 start_symbol="prog"
 
 while [ $# -gt 0 ]; do
-		echo "check "$1
+		#echo "check "$1
 		arg=$1
 		if [ ${arg:0:2} == "--" ]; then
 				#echo "get "$arg
@@ -143,8 +143,8 @@ while [ $# -gt 0 ]; do
 				start_symbol=$1
 		fi
 		shift
-		echo "files = "$files
-		echo "cmd = "$*
+		#echo "files = "$files
+		#echo "cmd = "$*
 done
 
 # Final options
