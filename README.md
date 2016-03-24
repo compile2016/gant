@@ -11,16 +11,16 @@
 
 
 ## Installation
-Download the shell script directly into your binary-files directory and add execute permission(**run with root if necessary**)
-> curl -o /usr/local/bin/gant https://raw.githubusercontent.com/3013216027/gant/master/gant.sh
+- See [Release Page](https://github.com/3013216027/gant/releases) and download the lastest version(`v2.3` now).
 
-> chmod a+x /usr/local/bin/gant
+- Extract
+ - for `.zip` file: `unzip gant-2.3.zip`
+ - for `.tar.gz` file: `tar -xf gant-2.3.tar.gz`
+ - then change the directory into it: `cd gant-2.3`
 
-- Windows git-bash user should do like this(add the alias to your bash profile as I recommand you to do):
+- Install
 
-> curl -o /usr/bin/gant.sh https://raw.githubusercontent.com/3013216027/gant/master/gant.sh
-
-> alias gant='/usr/bin/gant.sh'
+> ./install.sh
 
 ## Example
 
