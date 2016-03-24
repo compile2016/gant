@@ -6,7 +6,7 @@
 - Java compile and runtime environment. You may use Oracle Java, see [Oracle JavaSE Doc](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
 - Antlr4, see [here](http://www.antlr.org/)
  - You should also make the aliases needed when you configurate antlr4(microsoft windows users can create the .bat file).
-- Make, windows user can use mingw32-make(Gnumake, included with dev-cpp) or [Gnumake](http://gnuwin32.sourceforge.net/packages/make.htm).
+- Make, windows user can use mingw32-make(Gnumake, included with [dev-cpp](http://orwelldevcpp.blogspot.com/)) or [Gnumake](http://gnuwin32.sourceforge.net/packages/make.htm).
 - Moreover, gant can only deal with SINGLE antlr4 file, the start symbol of the gammar SHOULD be `prog`, and the expressions you want to parse should be input by a file named `Expression.txt`
 
 
