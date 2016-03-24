@@ -174,7 +174,9 @@ if [ $? -ne 0 ]; then
 fi
 
 cat > makefile << EOF
-default: ${files}.g4
+default: compile
+
+compile: ${files}.g4
 	antlr4 ${files}.g4
 	javac $files*.java
 
