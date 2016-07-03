@@ -51,4 +51,4 @@ INT		:	[0-9]+ ;
 
 ## API
 
-- Please see `gant -h` or `gant --help` for more help
+- Please refer `gant -h` or `gant --help` for more help
